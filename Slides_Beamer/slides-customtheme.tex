@@ -1,0 +1,169 @@
+%Slide template developed by Mark E. Fuller from examples and miscellany produced at RWTH Aachen
+%(probably mostly from the work of Philippe Dreuw and Thomas Deselaers)
+%This template copyright Mark E. Fuller, 2021 (mark.e.fuller@gmx.de)
+
+\documentclass[10pt,presentation]{beamer}
+
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Select language
+%%
+%\usepackage[ngerman]{babel}        % Deutsch, neue Rechtschreibung
+%\usepackage[hebrew,english]{babel}  %example of declaring multilingual document; last listed is ``dominant''
+\usepackage[english]{babel}
+
+%regional add-ons
+    % Shekel symbol
+\DeclareRobustCommand{\ILS}{\includegraphics[height=\fontcharht\font`T]{figures/ILS_bold}}
+
+\usetheme{custom}
+\usepackage[T1]{fontenc}           % Font encoding (don't change!)
+\usepackage{lmodern}               % Select Linux Modern Fonts (don't change)
+\usepackage{sansmathfonts}         % Sans fonts in math environments
+\usepackage{textcomp}              % fix 'missing font symbols' warning
+\renewcommand{\rmdefault}{phv}     % Arial like (Helvetica)
+\renewcommand{\sfdefault}{phv}     % Arial like (Helvetica)
+
+%% graphics related packages
+\usepackage{graphicx}              % needed to include graphics (don't change)
+\usepackage{epstopdf}              % required to include eps files
+%\usepackage{svg}                   % include svg files (requires Inkscape)
+\usepackage{subfigure}             % option to layout figures in tabular environment
+\usepackage[encoding,filenameencoding=utf8]{grffile} % allow utf8 file names in graphics´
+\setbeamertemplate{caption}{\insertcaption} %no ``figure'' in caption
+\usepackage{tikz}
+\usepackage{curves}
+\usepackage{pgfplots}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% import packages for content
+%%
+\usepackage{listings}              % display code: for lstlisting and \lstinline|..|
+
+% mathematics
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{sansmath}
+
+% tabularx -> better tabular environment
+\usepackage{tabularx}
+    % tabularx modifications
+\newcolumntype{L}{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
+\newcolumntype{R}{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}X}
+\newcolumntype{C}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}X}
+    % center text vertically in tabularx(column)
+%\renewcommand{\tabularxcolumn}[1]{>{\large}m{#1}}
+
+% Nicer tables
+\usepackage{booktabs}
+    % adjust table rows -> call on frame with table
+\newcommand{\fixbooktabsrowhight}{%
+    \setlength{\aboverulesep}{0pt}
+    \setlength{\belowrulesep}{0pt}
+    \setlength{\extrarowheight}{.5ex}
+}
+\usepackage{multirow} % cells with multiple rows
+\usepackage{scrextend} %needed for footnotes in tables
+
+% Source, e.g. for images
+\setbeamercolor{framesource}{fg=gray}
+\setbeamerfont{framesource}{size=\tiny}
+
+\usepackage[absolute,overlay]{textpos}
+\newcommand{\source}[1]{\begin{textblock*}{\linewidth}(1ex,\paperheight-2.75em)
+        \begin{beamercolorbox}[left]{framesource}
+            \usebeamerfont{framesource}\usebeamercolor[fg]{framesource} Source: {#1}
+        \end{beamercolorbox}
+\end{textblock*}}
+
+\usepackage{etoolbox}
+%% short titles for toc \(sub)section[SHORTTITLE for toc]{LONGTITLE for slide}
+\makeatletter
+% Insert [short title] for \section in ToC
+\patchcmd{\beamer@section}{{#2}{\the\c@page}}{{#1}{\the\c@page}}{}{}
+% Insert [short title] for \section in Navigation
+\patchcmd{\beamer@section}{{\the\c@section}{\secname}}{{\the\c@section}{#1}}{}{}
+% Insert [short title] for \subsection in ToC
+\patchcmd{\beamer@subsection}{{#2}{\the\c@page}}{{#1}{\the\c@page}}{}{}
+% Insert [short title] for \subsection  in Navigation
+\patchcmd{\beamer@subsection}{{\the\c@subsection}{#2}}{{\the\c@subsection}{#1}}{}{}
+\makeatother
+
+%easily format to multiple columns
+\usepackage{multicol}
+
+%properly display chemical formulas and structures
+    % Formula subscripts using \ce{}
+\usepackage[version=3]{mhchem} 
+    % structure drawing package
+%\usepackage{chemfig}
+%\setchemfig{chemfig style={line width=1.0pt}, atom sep=2em, angle increment=30, bond join=true, arrow style={line width=1.0pt}, lewis sep=0.3em}
+%\pgfplotsset{compat=1.13}
+    % define repeated abbreviations
+\newcommand{\nox}{NO$_x$}
+
+
+% Bibliography and citations
+
+%get proper bib with numbered entries
+%\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+%footnote citations - replace \cite with \footcite or \footfullcite
+\usepackage[backend=biber, style=chem-acs]{biblatex} %, style=authoryear-comp
+\addbibresource{references.bib}
+\addbibresource{ownpubspres.bib}
+
+%shrink citations
+\setbeamerfont{footnote}{size=\tiny}
+
+%bibliography/citation style
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamercolor{bibliography item}{fg=black}
+\setbeamercolor*{bibliography entry author}{fg=black}
+
+
+%some additional formatting
+\newcommand{\red}[1]{\textcolor{red}{#1}} %easy red text
+\usepackage{ulem}
+\newcommand{\soutthick}[1]{%
+	\renewcommand{\ULthickness}{1.6pt}%
+	\sout{#1}%
+	\renewcommand{\ULthickness}{.4pt}% Resetting to ulem default
+}
+
+
+%document header
+\title[]{An open-source toolchain from molecular vibrations to detailed combustion:\\how (some) physical chemists and chemical engineers have escaped proprietary software}
+%\subtitle{Subtitle}
+%\titlegraphic{}
+\author[]{Mark E. Fuller, Ph.D. and Kfir Kaplan}
+\email{fuller@fedoraproject.org} % optionally
+%\institute{Dana Research Group: Fundamental and Applied Chemical Kinetics}
+%\webaddress{www.informatik.rwth-aachen.de/mentoring} % overrides www.rwth-aachen.de
+\date[]{\today}
+\subject{Libre Planet 2022}
+\keywords{Technion, Latex Beamer, template}
+
+%\logo{\vskip-2mm\includegraphics[width=45mm]{../common/figures/Logos/RWTH/PCFC.png}\hspace{-2mm}} % optionally
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% configure template behaviour
+%%-------------------------------
+%%   secstart -- style of section start
+%%               selectable parameters:
+%%                 sectitle:  only provides section title
+%%                 sectoc:    display section table of contents
+%%                 <empty>:   display nothing on section start
+\secstart{sectitle}
+% disable PDF navigation icons
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+
+\input{agnostic_slides}
+
+\printbibliography
+
+\end{document}

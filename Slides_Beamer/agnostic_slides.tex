@@ -1,0 +1,246 @@
+\begin{frame}{About Us}
+Mark and Kfir are both active in developing and contributing to FOSS projects within the scientific community including \textsc{Cantera}, the \textsc{Reaction Mechanism Generator}, and the \textsc{Automatic Rate Calculator}.
+
+\vspace{0.5cm}
+
+Mark:
+\begin{itemize}
+ \item Ph.D. in chemical engineering
+ \item Linux/FOSS user and contributor over 15+ years
+ \item Research foci are combustion chemistry, batteries, fuel cells, and heat transfer
+ \item Currently employed in DevOps
+\end{itemize}
+
+\vspace{0.5cm}
+
+Kfir:
+\begin{itemize}
+ \item fourth-year undergraduate student at the Technion in chemical engineering
+ \item \ldots
+\end{itemize}
+
+\vspace{0.5cm}
+
+GitHub: mefuller \& kfir4444
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Computational chemistry is essential to current and future development}
+
+Just a few examples:
+
+\vspace{0.5cm}
+
+ \begin{itemize}
+  \item Alternative bio and manufactured fuels
+  \item Batteries and Fuel cells
+  \item Drug and pharmaceutical manufacturing and degradation
+  \item Proteins and organic molecules
+  \item Refining and materials synthesis
+ \end{itemize}
+ 
+ \vspace{0.5cm}
+ 
+ We are moving from postdictive to predictive computational capabilities\footfullcite{Green.2020}
+ 
+\end{frame}
+
+\begin{frame}{Toolchain overview: macro to micro-scale}
+``Complete'' simulation of a chemical reactor:
+
+\vspace{0.5cm}
+
+ \begin{itemize}
+  \item Global/macroscopic: temperature, pressure, chemical composition (TPX)
+  \item Reactor/condition-specific implementation of laws of thermodynamics, conservation equations
+  \item Chemical reactions for all chemical species
+  \item Thermodynamic properties for all chemical species
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Toolchain overview: computing and sourcing properties}
+Various computational approaches:
+
+\vspace{0.5cm}
+
+ \begin{itemize}
+  \item ``Guess'' new species and thermodynamic properties from tabulated rules
+  \item Estimate reaction rates by analogy to other reactions
+ \end{itemize}
+ 
+ or
+ 
+ \begin{itemize}
+  \item Compute molecular structures (many different methods)
+  \item Calculate thermodynamic properties and reaction rates
+ \end{itemize}
+ 
+ \vspace{0.5cm}
+ 
+ \{Cheap and fast\} versus \{expensive and slow\},\\
+ but we need both approaches to solve real problems
+\end{frame}
+
+\begin{frame}{Guessing Species and Reactions}
+
+\vspace{-5mm}
+
+    \begin{multicols}{2}
+    \begin{itemize}
+        \item Hydrogen abstractions
+        \begin{itemize}
+            \item \ce{RH} + \ce{NO2} $\rightleftharpoons$ \ce{R} + \ce{HONO}
+            \item \ce{RH} + \ce{NO2} $\rightleftharpoons$ \ce{R} + \ce{HNO2}
+            \item \ce{RH} + \ce{NO} $\rightleftharpoons$ \ce{R} + \ce{HNO}
+        \end{itemize}
+        \item Nitrite/Nitrate/Nitro-/Nitroso- Compounds
+        \begin{itemize}
+            \item \ce{RONO} $\rightleftharpoons$ \ce{RO} + \ce{NO}
+            \item \ce{RONO2} $\rightleftharpoons$ \ce{RO} + \ce{NO2}
+            \item \ce{RNO2} $\rightleftharpoons$ \ce{R} + \ce{NO2}
+            \item \ce{RNO} $\rightleftharpoons$ \ce{R} + \ce{NO}
+        \end{itemize}
+        \item Isomerizations  
+        \begin{itemize}
+            \item \ce{RONO} $\rightleftharpoons$ \ce{RNO2}
+        \end{itemize}
+        \item \ce{HONO} elimination
+        \begin{itemize}
+            \item \ce{RONO} $\rightleftharpoons$ alkene + \ce{HONO}
+        \end{itemize}
+        \item \nox\ cycling
+        \begin{itemize}
+            \item \ce{RO2} + \ce{NO} $\rightleftharpoons$ \ce{RO} + \ce{NO2}
+            \item \ce{R} + \ce{NO2} $\rightleftharpoons$ \ce{RO} + \ce{NO}
+        \end{itemize}
+    \end{itemize}
+    
+    \columnbreak
+    
+    \null \vfill
+    \begin{figure}
+        \centering
+        \resizebox{\columnwidth}{!}{
+            \begin{tikzpicture}
+                %nox loop bounds
+                \draw[->,very thick] (1,1) .. controls (2.5,0.5) .. (4,1);
+                \draw[<-,very thick] (1,2) .. controls (2.5,2.5) .. (4,2);
+                \draw (1,1.5) node {{\color{blue}N}{\color{red}O}$_2$};
+                \draw (4,1.5) node {{\color{blue}N}{\color{red}O}};
+                
+                \draw[->,very thick] (1,0.25) .. controls (2.5,0.75) .. (4,0.25);
+                \draw (0.75,-0.25) node {\ce{RH}};
+                \draw (3.75,-0.25) node {({\color{red}O}H +) \ce{R} };
+                
+                \draw[<-,very thick] (1,2.75) .. controls (2.5,2.25) .. (4,2.75);
+                \draw (0.75,3.25) node {R{\color{red}O}};
+                \draw (4.5,3.25) node {R{\color{red}O}$_2$}; 
+                
+                \draw[->,very thick] (4.5,0.25) .. controls (5,1.5) .. (4.5,2.75); 
+                \draw (5.5,1.5) node {+{\color{red}O}$_2$};
+                
+                \draw[->,very thick] (5,3.25)--(5.5,3.25); 
+                \draw (6.25,3.25) node {Q{\color{red}O}{\color{red}O}H};
+                
+                \draw[->,very thick] (4.75,-0.25)--(5.25,-0.25); 
+                \draw (6.25,-0.25) node {$\beta$-scission};
+            \end{tikzpicture}
+        }
+        \label{fig:NOx_cycle}
+        \caption{Adding \nox\ to a combustion process\footfullcite{Fuller.2021}}
+    \end{figure}
+    \vfill \null
+    
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{Calculating Species and Reactions}
+	\begin{figure}
+		\centering
+        \begin{tikzpicture}[yscale = 0.5]
+            %draw coordinate axis with labels
+            %as above, not so many label, so they are manual here (e.g. make log)
+            \draw[->,thick] (0,0) -- coordinate (x axis mid) (8,0);
+            \draw[<->,thick] (0,2) -- coordinate (y axis mid)(0,-2);
+            %\draw[gray, dashed](0,\ymax) grid (\Px,\ymin);
+            \foreach \y/\ytext in {2/20, 1/10,0/0,-1/-10,-2/-20} \draw (3pt,\y cm) -- (-3pt,\y cm) node[anchor=east] {{$\ytext$}};
+            
+            %Text Labels
+            %reactant side: placement will need to be adjusted for path lines
+            \node [scale = 1.0,black] at (1.0, 1.0) {{R{\color{red}O} + {{\color{blue}N}{\color{red}O}$_2$}}};
+            \node [scale = 1.0,black] at (7.2, 1.5){{R{\color{red}O}$_2$ + {{\color{blue}N}{\color{red}O}}}};      	
+            \node [scale = 1.0,black] at (3.8, -1.60) {{R{\color{red}OO}{{\color{blue}N}{\color{red}O}}}};
+            \draw[->,thick] (0.2,0.8) --(0.2,0.1);
+
+            %links
+            \draw[black, very thick] plot [smooth] coordinates {(0.0,0.0)(0.8,-0.1)(4.0, -1.2)(7.2,0.9)(8.0, 1.1)};
+            \draw[black, very thick, dashed] plot [smooth] coordinates {(0.0,0.0)(1.3,0.1)(6.7,1.0)(8.0, 1.1)};
+        \end{tikzpicture}
+		\caption{Generalized potential energy surface for alkoxy radical (RO) + \ce{NO2} system. Energies in kcal/mol.
+			Well-skipping occurs at virtually all combustion-relevant temperatures and pressures.}
+		\label{fig:NOx-Cycle_PES}
+	\end{figure}
+\begin{tabular}{crrr}
+	\toprule
+	Reaction & \multicolumn{1}{c}{$A$} & \multicolumn{1}{c}{$n$} & \multicolumn{1}{c}{$E_a$}\\
+	\midrule
+	\ce{CH3O2} + \ce{NO} $\rightleftharpoons$ \ce{CH3O} + \ce{NO2} & 4.62E+15 & -0.38 & 97.8\\
+	\ce{C2H5O2} + \ce{NO} $\rightleftharpoons$ \ce{C2H5O} + \ce{NO2} & 2.11E+14 & -0.12 & -470.6\\
+	\textit{n}-\ce{C3H7O2} + \ce{NO} $\rightleftharpoons$ \textit{n}-\ce{C3H7O} + \ce{NO2} & 1.07E+14 & -0.25 & -1302.0\\
+	\bottomrule
+\end{tabular}	
+
+Units: centimeters, kelvin, calories, moles
+\end{frame}
+
+\section{Software}
+
+\begin{frame}{Our toolchain}
+ \begin{itemize}
+  \item Electronic structure calculations of individual molecules with \textsc{Psi4}
+  \item Conversion of individual molecule results to thermodynamic properties and reaction rates with \textsc{ARC} %PAPR/MESS?, TamKIN?
+  \item Automated model construction including estimating properties with \textsc{RMG}
+  \item Automating decisions to refine estimates with computations using \textsc{T3}
+  \item Reactor simulations with \textsc{Cantera}
+  \item Comparing to experimental data with standardized formatting (\textsc{ChemKED})
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Psi4}
+ {definitely show some animations of vibrations and TS here - videos transcoded into **WebM** format}
+\end{frame}
+
+\begin{frame}{RMG}
+ 
+\end{frame}
+
+\begin{frame}{ARC}
+ 
+\end{frame}
+
+\begin{frame}{T3}
+ 
+\end{frame}
+
+\begin{frame}{Cantera}
+ 
+\end{frame}
+
+\begin{frame}{ChemKED}
+ 
+\end{frame}
+
+\begin{frame}{Technical - bake in above}
+ -how is software developed and distributed?
+-include links to source code, binaries
+\end{frame}
+
+\begin{frame}{Help wanted}
+ -where can technical/software people contribute without knowing chemistry?
+-what challenges do we foresee?
+\end{frame}
+
+\begin{frame}{Q\&A}
+ 
+\end{frame}

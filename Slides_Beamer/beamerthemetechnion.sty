@@ -1,0 +1,652 @@
+% Copyright 2007 by Till Tantau
+% Copyright 2009 by Rainer Finocchiaro
+% Copyright 2013 by Georg Wassen
+% Copyright 2016-2018 by Gerrit Toehgiono
+% Copyright 2020-2021 by Mark E. Fuller (mark.e.fuller@gmx.de)
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+%\ProvidesPackageRCS $Header: beamerthemetechnion.sty $
+
+
+%\RequirePackage{rotating}							% (to rotate something; currently not needed)
+\RequirePackage{xspace}                             % for \xspace
+
+
+\mode<presentation>
+
+
+%%
+%% include RWTH logo (for header)
+%%
+\logo{\includegraphics[height=8mm]{figures/Logos/Technion/Technion_ChemE.png}}
+
+%%
+%% add new commands to set web and email address
+%% (and, optionally, institute logo
+%%
+\newcommand*{\webaddress}[1]{}
+\newcommand*{\printwebaddress}{dana.net.technion.ac.il}
+\renewcommand*{\webaddress}[1]{\renewcommand*{\printwebaddress}{#1}}
+
+\newcommand*{\email}[1]{}
+\newcommand*{\printemail}{}
+\renewcommand*{\email}[1]{\renewcommand*{\printemail}{#1\xspace}}
+
+\newcommand*{\instlogo}[1]{}
+\newcommand*{\printinstlogo}{}
+\renewcommand*{\instlogo}[1]{\renewcommand*{\printinstlogo}{#1}}
+
+\newcommand*{\instaddr}[1]{}
+\newcommand*{\printinstaddr}{Dana Research Group\\
+    Fundamental and Applied Chemical Kinetics\\
+    The Technion\\
+    Haifa, IL}
+\renewcommand*{\instaddr}[1]{\renewcommand*{\printinstaddr}{#1}}
+
+\newcommand*{\secstart}[1]{}
+\newcommand*{\printsecstart}{}
+\renewcommand*{\secstart}[1]{\renewcommand*{\printsecstart}{#1}}
+
+
+%%
+%% include the other style files of the rwth theme
+%%
+\mode<presentation>
+
+%%
+%% settings for the title page
+%%
+\setbeamerfont{title     in title page}{size=\Large,series=\bfseries}
+\setbeamerfont{subtitle  in title page}{size=\scriptsize}
+\setbeamerfont{author    in title page}{size=\scriptsize,series=\bfseries}
+\setbeamerfont{institute in title page}{size=\scriptsize}
+\setbeamerfont{date      in title page}{size=\scriptsize}
+
+%%
+%% settings for the header and footer (outer theme)
+%%
+\setbeamerfont{framenumber}{size=\scriptsize}
+
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{frametitle}{size=\large}
+
+\setbeamerfont{section}{size=\Large,series=\bfseries}
+
+%\usefonttheme{rwth}  % beamerfontthemerwth.sty
+%%
+%% various settings (deactivated); settings (activated) to match the RWTH theme
+%%
+
+%\setbeamerfont{normal text}{} % ignored currently
+%\setbeamerfont{alerted text}{}
+%\setbeamerfont{example text}{}
+
+%\setbeamerfont{structure}{}
+%\setbeamerfont{tiny structure}{size=\tiny}
+
+%\setbeamerfont{title}{size=\Large,series=\bfseries,parent=structure}
+%\setbeamerfont{title in head/foot}{}
+%\setbeamerfont{title in sidebar}{size=\tiny}
+
+%\setbeamerfont{subtitle in title}{size=\scriptsize}
+
+%\setbeamerfont{author}{size=\scriptsize,series=\bfseries}
+%\setbeamerfont{author in head/foot}{}
+%\setbeamerfont{author in sidebar}{size=\tiny}
+
+%\setbeamerfont{institute}{size=\scriptsize}
+%\setbeamerfont{institute in head/foot}{}
+%\setbeamerfont{institute in sidebar}{}
+
+%\setbeamerfont{phramenumber in foot}{series=\bfseries}
+
+%\setbeamerfont{date}{size=\scriptsize}
+%\setbeamerfont{date in head/foot}{}
+%\setbeamerfont{date in sidebar}{size=\tiny}
+
+%\setbeamerfont{part name}{size=\Large}
+%\setbeamerfont{part title}{parent=title}
+
+\setbeamerfont{section in toc}{parent=structure,series=\bfseries,size=\normalsize}
+\setbeamerfont{subsection in toc}{parent=structure,size=\small}
+\setbeamerfont{section in toc shaded}{parent=section in toc,series=\mdseries}
+\setbeamerfont{subsection in toc shaded}{parent=subsection in toc,series=\mdseries}
+%\setbeamerfont{section in head/foot}{size=\Large,series=\bfseries}
+%\setbeamerfont{section in sidebar}{size=\tiny}
+\setbeamerfont{section number projected}{size=\normalsize,parent={section in toc,projected text},series=\bfseries}
+\setbeamerfont{subsection number projected}{size=\small,parent={subsection in toc,projected text},series=\bfseries}
+
+%\setbeamerfont{subsection in toc}{}
+%\setbeamerfont{subsection in toc shaded}{parent=subsection in toc}
+%\setbeamerfont{subsection in head/foot}{size=\Large,series=\bfseries}
+%\setbeamerfont{subsection in sidebar}{}
+
+%\setbeamerfont{subsubsection in toc}{size=\footnotesize}
+%\setbeamerfont{subsubsection in toc shaded}{parent=subsubsection in toc}
+%\setbeamerfont{subsubsection in head/foot}{}
+%\setbeamerfont{subsubsection in sidebar}{}
+
+%\setbeamerfont{headline}{parent={tiny structure}}
+%\setbeamerfont{footline}{parent={tiny structure}}
+
+%\setbeamerfont{sidebar}{size=\Tiny,parent={tiny structure}}
+%\setbeamerfont{sidebar left}{parent=sidebar}
+%\setbeamerfont{sidebar right}{parent=sidebar}
+
+%\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+%\setbeamerfont{framesubtitle}{parent=frametitle,size=\footnotesize}
+
+%\setbeamerfont{caption}{size=\small}
+%\setbeamerfont{caption name}{parent={structure,caption}}
+
+%\setbeamerfont{button}{size=\tiny}
+
+%\setbeamerfont{block body}{}
+%\setbeamerfont{block body alerted}{}
+%\setbeamerfont{block body example}{}
+%\setbeamerfont{block title}{size=\large,parent={structure,block body}}
+%\setbeamerfont{block title alerted}{parent={block title,alerted text}}
+%\setbeamerfont{block title example}{parent={block title,example text}}
+
+%\setbeamerfont{item}{parent=structure}
+%\setbeamerfont{subitem}{parent=item}
+%\setbeamerfont{subsubitem}{parent=subitem}
+
+%\setbeamerfont{item projected}{size=\tiny,parent={item,projected text}}
+%\setbeamerfont{subitem projected}{parent=item projected}
+%\setbeamerfont{subsubitem projected}{parent=subitem projected}
+
+%\setbeamerfont{itemize item}{parent=item}
+%\setbeamerfont{itemize subitem}{parent=subitem}
+%\setbeamerfont{itemize subsubitem}{parent=subsubitem}
+
+%\setbeamerfont{enumerate item}{parent=item}
+\setbeamerfont{enumerate item}{parent=default}
+\setbeamerfont{enumerate subitem}{parent=default}
+%\setbeamerfont{enumerate subitem}{parent=subitem}
+%\setbeamerfont{enumerate subsubitem}{parent=subsubitem}
+
+\setbeamerfont{itemize/enumerate body}{series=\bfseries}
+%\setbeamerfont{itemize/enumerate body}{}
+%\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subbody}{series=\mdseries}
+%\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+
+
+%\setbeamerfont{description item}{parent=item}
+
+%\setbeamerfont{projected text}{parent={tiny structure}}
+
+%\setbeamerfont{abstract}{size=\small}
+%\setbeamerfont{abstract title}{parent={abstract,structure},size=\normalsize}
+
+%\setbeamerfont{verse}{family=\rmfamily,shape=\itshape}
+
+%\setbeamerfont{quotation}{shape=\itshape}
+%\setbeamerfont{quote}{parent=quotation}
+
+%\setbeamerfont{note page}{size=\small}
+
+\mode<all>
+
+\mode<presentation>
+
+%colors
+\RequirePackage{Technioncolors}
+
+%%
+%% settings for the title page
+%%
+%\setbeamercolor{title in titlepage}{fg=tdeepblue}
+\setbeamercolor{title}{fg=tdeepblue}
+
+%\setbeamercolor{subtitle in title}{fg=black}
+%\setbeamercolor{title in head/foot}{fg=tdeepblue}
+\setbeamercolor{subtitle}{fg=black}
+\setbeamercolor{author in head/foot}{fg=black}
+
+%%
+%% settings for the outer theme
+%%
+\setbeamercolor{framenumber in head/foot}{fg=white,bg=tdeepblue}
+\setbeamercolor{frametitle}{fg=tdeepblue}
+\setbeamercolor{section}{fg=tdeepblue}
+
+%%
+%% settings for the table of contents
+%%
+\setbeamercolor{section in toc}{fg=black}
+%\setbeamercolor{subsection in toc}{fg=tdeepblue}
+\setbeamercolor{subsection in toc}{fg=black}
+\setbeamercolor{section number projected}{fg=tgolden}
+\setbeamercolor{subsection number projected}{fg=tdeepblue}
+
+%%
+%% settings for the inner theme (e.g. itemize)
+%%
+\setbeamercolor{itemize item}{fg=tgolden}
+\setbeamercolor{itemize subitem}{fg=tdeepblue}
+\setbeamercolor{itemize subsubitem}{fg=tdeepblue}
+%\setbeamercolor{itemize subsubbody}{fg=red}
+
+%%
+%% various settings (deactivated) for reference
+%%
+
+\setbeamercolor{block title}{fg=tdeepblue}
+\setbeamercolor{block title alerted}{fg=pantone0485}
+\setbeamercolor{block title example}{fg=pantone0354}
+
+%\setbeamercolor{sidebar text}{fg=white}
+%\setbeamercolor{sidebar right}{fg=black,bg=red}
+%\setbeamercolor{title in foot}{fg=white}
+%\setbeamercolor{phramenumber in foot}{fg=black}
+%\setbeamercolor{insitute in foot}{fg=black}
+%\setbeamercolor{head text}{fg=black}
+%\setbeamercolor{normal text}{fg=black,bg=white}
+
+\mode<all>
+
+%\useoutertheme{rwth} % beamerouterthemerwth.sty
+\RequirePackage{calc}       % needed for calculations of lengths
+
+
+\mode<presentation>
+
+
+\defbeamertemplate*{title page}{technion theme}
+{
+  \hbox{%
+    \begin{beamercolorbox}[sep=0cm,wd=.525\paperwidth]{frametitle}
+      \begin{minipage}[t]{.5\paperwidth}
+        \raggedright\vskip-7.5mm
+      \end{minipage}
+    \end{beamercolorbox}%
+    \begin{minipage}[t]{.4\paperwidth}
+      \begin{beamercolorbox}[sep=0cm,wd=.4\paperwidth,right]{logo}
+        \insertlogo\hspace{2mm}
+      \end{beamercolorbox}%
+    \end{minipage}
+  }
+
+  \vspace{25mm}
+  \begin {beamercolorbox}[sep=0pt]{title}
+  \usebeamerfont{title in title page}\inserttitle
+  \end {beamercolorbox}
+  \vfill
+  \begin {beamercolorbox}[sep=0pt]{subtitle}
+  \usebeamerfont{subtitle in title page}\insertsubtitle
+  \end {beamercolorbox}
+  \vfill
+  \begin {beamercolorbox}[sep=0pt,]{author}
+  \usebeamerfont{author in title page}\insertauthor
+  \end {beamercolorbox}
+  \vspace{2ex}
+  \begin {beamercolorbox}[sep=0pt,]{institute}
+  \usebeamerfont{institute in title page}\insertinstitute
+  \end {beamercolorbox}
+  \begin {beamercolorbox}[sep=0pt,]{date}
+  \usebeamerfont{date in title page}\insertdate
+  \end {beamercolorbox}
+  \vspace{2ex}
+}
+
+
+
+%\setbeamersize{sidebar width left=10mm}        % left width and margin is not correctly used in head/foot
+%\setbeamersize{text margin left=2mm}
+\setbeamersize{sidebar width right=0mm}         % no right sidebar.
+\setbeamersize{text margin right=2mm}
+
+
+\defbeamertemplate*{sidebar right}{technion theme}
+{
+}
+
+
+\defbeamertemplate*{sidebar left}{technion theme}
+{
+}
+
+
+\defbeamertemplate*{frametitle}{technion theme}[1][left]
+{
+}
+
+
+\defbeamertemplate*{headline}{technion theme}[1][left]
+{
+  \vskip2mm%
+  \hbox{%
+    \begin{beamercolorbox}[sep=0cm,wd=1cm]{frametitle}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[sep=0cm,wd=.525\paperwidth]{frametitle}
+      \begin{minipage}[t]{.6\paperwidth}
+        \raggedright\vskip-7.5mm
+        \usebeamerfont{frametitle}\ifx\insertsubsection\@empty\else{\insertsubsection\par}\fi\insertframetitle
+      \end{minipage}
+    \end{beamercolorbox}%
+    \begin{minipage}[t]{.4\paperwidth}
+      \begin{beamercolorbox}[sep=0cm,wd=.4\paperwidth,right]{logo}
+        \insertlogo\hspace{2mm}
+      \end{beamercolorbox}%
+    \end{minipage}
+  }
+  \vskip2.5mm
+}
+
+
+\defbeamertemplate*{footline}{technion theme}
+{
+  \leavevmode%
+  \begin{beamercolorbox}[wd=8mm,ht=7mm,sep=4pt,right]{framenumber in head/foot}
+    \usebeamerfont{framenumber}\insertframenumber{}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[sep=2pt,wd=.6\paperwidth,ht=2.25ex,dp=1ex]{title in head/foot}%
+    \begin{minipage}[b]{\columnwidth}
+    %\hbox{%
+      \usebeamerfont{title in head/foot}\insertshorttitle%
+    %}
+    \end{minipage}
+    %\par\vspace{1pt}%
+    %\hbox{%
+      \hskip2pt\usebeamercolor[fg]{author in head/foot}\usebeamerfont{author in head/foot}\insertshortauthor%
+      \expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~|~\insertshortinstitute}%
+      \expandafter\beamer@ifempty\expandafter{\beamer@shortdate}{}{~|~\insertshortdate}%
+      \hskip5mm%
+    %}%
+  \end{beamercolorbox}%
+  \hfill%
+  \begin{beamercolorbox}[sep=2pt,wd=.3\paperwidth]{title in head/foot}%
+  \begin{minipage}[b]{.95\linewidth}
+    \ifx\printinstlogo\@empty{}\else{\flushright\hfill\printinstlogo}\fi%
+    %% If navigation symbols requisited
+    %\ifx\printinstlogo\@empty{\usebeamertemplate***{navigation symbols}}\else{\printinstlogo}\fi%
+  \end{minipage}
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+%\defbeamertemplate*{footline}{technion theme}
+%{
+%  \leavevmode%
+%  \begin{beamercolorbox}[wd=8mm,ht=7mm,sep=4pt,right]{framenumber in head/foot}
+%    \usebeamerfont{framenumber}\insertframenumber{}
+%  \end{beamercolorbox}
+%  \begin{beamercolorbox}[sep=2pt,wd=.6\paperwidth,ht=2.25ex,dp=1ex]{title in head/foot}%
+%    \hbox{%
+%      \usebeamerfont{title in head/foot}\insertshorttitle%
+%    }\par\vspace{1pt}%
+%    \hbox{%
+%      \hskip2pt\usebeamercolor[fg]{author in head/foot}\usebeamerfont{author in head/foot}\insertshortauthor%
+%      \expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~|~\insertshortinstitute}%
+%      \expandafter\beamer@ifempty\expandafter{\beamer@shortdate}{}{~|~\insertshortdate}%
+%      \hskip5mm%
+%    }%
+%  \end{beamercolorbox}%
+%  \hfill%
+%  \begin{beamercolorbox}[sep=2pt,wd=.3\paperwidth,right]{title in head/foot}%
+%    \printinstlogo
+%    %% If navigation symbols requisited
+%    %\ifx\printinstlogo\@empty{\usebeamertemplate***{navigation symbols}}\else{\printinstlogo}\fi%
+%  \end{beamercolorbox}%
+%  \vskip0pt%
+%}
+
+%\defbeamertemplate*{footline}{lfbs theme}
+%{
+%    \pgfdeclarehorizontalshading{lfbsfootlineshading}{.034\paperwidth}{%
+%      color(0pt)=(tdeepblue);%
+%      color(0.031\paperwidth)=(tdeepblue);%
+%      color(0.831\paperwidth)=(white)
+%    }
+%
+%  \leavevmode%
+%
+%  \hbox{%
+%  	\raisebox{-2.5ex}{\pgfuseshading{lfbsfootlineshading}}
+%	  \hspace*{-0.8\paperwidth}
+%  %\psframebox[fillstyle=slopes,slopecolors=0 0 0.48 0.73 5 0 0.48 0.73 75 1 1 1 100 1 1 1 4]{
+% 	  	\begin{beamercolorbox}[wd=.46\paperwidth,ht=.01\paperheight,dp=1ex,left]{title in foot}%
+%	    	\usebeamerfont{author in head/foot}\raisebox{-.7ex}{\insertshorttitle}%
+%	  	\end{beamercolorbox}%
+%	  	\begin{beamercolorbox}[wd=.02\paperwidth,ht=.01\paperheight,dp=1ex,center]{phramenumber in foot}%
+%		    \usebeamerfont{phramenumber in foot}\raisebox{-.7ex}{\insertframenumber{}}%
+%		  \end{beamercolorbox}%
+%	  	\begin{beamercolorbox}[wd=.3\paperwidth,ht=.01\paperheight,dp=1ex,center]{institute in foot}%
+%		    \usebeamerfont{date in head/foot}\raisebox{-.7ex}{\lfbs@institute}%
+%	  	\end{beamercolorbox}%
+%		    %\raisebox{-1.5ex}{\includegraphics[height=.55cm]{img/rwthlogo}}%height=.5cm
+%%  }
+%  }
+%%  \vskip0pt%
+%}
+
+%\defbeamertemplate*{sidebar left}{lfbs theme}
+%{
+%%	\psframebox[fillstyle=slopes,slopecolors=0 0 0.48 0.73 2 0 0.48 0.73 75 1 1 1 100 1 1 1 4,slopeangle=90]{
+%	\begin{beamercolorbox}[wd=.034\paperwidth,ht=.9\paperheight,sep=2ex,dp=1ex,right]{sidebar text}%
+%		\usebeamerfont{date in sidebar}
+%		\begin{rotate}{90}
+%			%\hspace*{-6ex}
+%			\insertshortdate
+%%			\hspace*{.2\paperheight}
+%%			\insertsectionhead 
+%		\end{rotate}
+%	\end{beamercolorbox}
+%%	}
+%}
+
+%\defbeamertemplate*{navigation symbols}{lfbs theme}%
+%{
+%%	\insertslidenavigationsymbol
+%%	\insertframenavigationsymbol
+%%	\insertsectionnavigationsymbol
+%%	\insertsubsectionnavigationsymbol
+%}
+
+%\defbeamertemplate*{sidebar right}{lfbs theme}
+%{
+%%	\begin{beamercolorbox}[wd=0.04\paperwidth,ht=.84\paperheight,dp=1ex,left]{sidebar right}
+%%		\begin{rotate}{90}
+%%			\insertnavigationsymbols
+%%		\end{rotate}
+%%	\end{beamercolorbox}
+%}
+
+%\setbeamertemplate{frametitle}
+%{
+%	  \begin{beamercolorbox}[wd=.966\paperwidth,ht=.035\paperheight,dp=1ex,center]{head text}%
+%	    \usebeamerfont{frametitle}\raisebox{-1.5ex}{\underline \insertframetitle}%
+%	  \end{beamercolorbox}
+%}
+
+%\setbeamertemplate{framesubtitle}{}
+
+%\setbeamersize{sidebar width left=.031\paperwidth}
+%%\setbeamersize{sidebar width right=.031\paperwidth}
+
+%\setbeamertemplate{sidebar canvas left}[vertical shading]
+%[left=tdeepblue, middle=tdeepblue, right=white, midpoint=0.2]
+%
+%%\setbeamertemplate{sidebar canvas right}[vertical shading]
+%%[left=white, middle=white, right=white, midpoint=0.2]
+
+%\setbeamersize{text margin left=2em,text margin right=1em}
+
+\mode<all>
+
+%\useinnertheme{rwth} % beamerinnerthemerwth.sty
+\RequirePackage{marvosym} % for \MVRightArrow (used in: itemize subitem)
+\RequirePackage{hyperref} % Hyperlinks
+\RequirePackage{multicol} % multi-column text
+\RequirePackage{etoolbox}
+\RequirePackage{ifthen}
+
+
+\mode<presentation>
+
+
+%%
+%% Listen-Layout
+%% (this is typographically inelegant, but it is according to the provided layout)
+%%
+% 1. Ebene: Quadrat
+\setbeamertemplate{itemize item}[square]
+% 2. Ebene: Pfeil
+%\defbeamertemplate{itemize subitem}{arrow}{$\rightarrow$}
+\defbeamertemplate{itemize subitem}{arrow}{\MVRightArrow}       % from package marvosym
+
+\setbeamertemplate{itemize subitem}[arrow]
+%           typografically nicer: trigangle (but it would conflict with the given layout...)
+%\setbeamertemplate{itemize subitem}[triangle]
+
+%% 3. Ebene: Pfleil
+\defbeamertemplate{itemize subsubitem}{arrow}{\MVRightArrow}    % from package marvosym
+\setbeamertemplate{itemize subsubitem}[arrow]
+%% rechte Guillemets (zwei größer-als-Zeichen: >> )
+%\defbeamertemplate{itemize subsubitem}{double arrow}{\frqq}
+%\setbeamertemplate{itemize subsubitem}[double arrow]
+
+
+%% TOC-Layout
+% sections
+\setbeamertemplate{section in toc}{%
+  \leavevmode\leftskip=1.75ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor[fg]{section number projected}%
+    {\hfil\inserttocsectionnumber.\hfil}%
+  }%
+  \kern1ex\inserttocsection\par
+}
+
+
+% subsections
+\setbeamertemplate{subsection in toc}{%
+  \leavevmode\leftskip=4ex%
+  \llap{%
+    \usebeamerfont*{subsection number projected}%
+    \usebeamercolor[fg]{subsection number projected}%
+    {\hfil\MVRightArrow\hfil}%
+  }%
+  \kern1ex\inserttocsubsection\par%
+}
+
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+\makeatother
+
+
+\AtBeginSection[] % Do nothing for \section*
+{
+  \ifthenelse{\equal{\printsecstart}{}}%
+  {% secstart empty
+  }%
+  {% keine Sektionsübersicht / nur Sektionstitel
+    \ifthenelse{\equal{\printsecstart}{sectitle}}%
+    {%
+      \begin{frame}<beamer>
+        \frametitle{~}
+        \vspace{3cm}
+        \begin {beamercolorbox}[sep=0pt]{section}
+        \usebeamerfont{section}\insertsection
+        \end {beamercolorbox}
+      \end{frame}
+    }
+    {
+      % Übersicht nach jeder Sektion / ganze Sektion wird aufgeblendet
+      \ifthenelse{\equal{\printsecstart}{fulltoc}}%
+      {%
+        \begin{frame}<beamer>
+          % This shouldn't be fixed.
+          \frametitle{Outline}
+          % Highlight just the current subsection and its parent section
+          \begin{multicols*}{2}
+            \tableofcontents
+          \end{multicols*}
+        \end{frame}
+      }
+      {
+        % Übersicht nach jeder Sektion / jede Untersektion wird aufgeblendet
+        \ifthenelse{\equal{\printsecstart}{sectoc}}%
+        {%
+          \begin{frame}<beamer>[t]
+            \frametitle{Outline}
+            % wrap toc if too long
+            \begin{multicols*}{2}
+              \tableofcontents[current,currentsection,hideothersubsections]
+            \end{multicols*}
+          \end{frame}
+        }
+        {
+          \errmessage
+        }
+      }
+    }
+  }
+}
+
+
+% Übersicht nach jeder subsection / jede Untersektion wird aufgeblendet
+%\AtBeginSubsection[] % Do nothing for \subsection*
+%{
+%\begin{frame}<beamer|handout>
+%  \frametitle{Outline}
+%    \tableofcontents[current,currentsection,currentsubsection,hideothersubsections]
+%\end{frame}
+%}
+
+
+\AtBeginDocument
+{
+  %\iflanguage{ngerman}{\pdfbookmark[2]{Titelseite}{title}}{}
+  \iflanguage{english}{\pdfbookmark[2]{Title page}{title}}{\pdfbookmark[2]{Titelseite}{title}}
+
+  \frame[plain,t]{\titlepage}
+}
+
+
+\AtEndDocument
+{
+  \begin{frame}[plain,t]
+    \hbox{%
+      \begin{beamercolorbox}[sep=0cm,wd=.525\paperwidth]{frametitle}
+        \begin{minipage}[t]{.5\paperwidth}
+          \raggedright\vskip-7.5mm
+        \end{minipage}
+      \end{beamercolorbox}%
+      \begin{minipage}[t]{.4\paperwidth}
+        \begin{beamercolorbox}[sep=0cm,wd=.4\paperwidth,right]{logo}
+          \insertlogo\hspace{2mm}
+        \end{beamercolorbox}%
+      \end{minipage}
+    }
+
+    \vspace{4cm}
+    \scriptsize
+    %\protect\iflanguage{ngerman}{Vielen Dank f\"ur Ihre Aufmerksamkeit!}{}
+    %\protect\iflanguage{ngerman}{Vielen Dank f\"ur Eure Aufmerksamkeit!}{}
+    %\protect\iflanguage{english}{Thank you for your kind attention!}{}
+
+    \vspace{4ex}
+    \textbf{\insertauthor}\ifx\printemail\@empty\else{~--~{\color{tdeepblue}\printemail}}\fi
+
+    \vspace{2ex}
+    \printinstaddr
+
+    \vspace{2ex}
+    {\color{tdeepblue}\url{\printwebaddress}}
+  \end{frame}
+}
+
+\mode<all>
+
+
+\mode<all>
