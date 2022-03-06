@@ -32,7 +32,7 @@
 %% (and, optionally, institute logo
 %%
 \newcommand*{\webaddress}[1]{}
-\newcommand*{\printwebaddress}{dana.net.technion.ac.il}
+\newcommand*{\printwebaddress}{}%dana.net.technion.ac.il}
 \renewcommand*{\webaddress}[1]{\renewcommand*{\printwebaddress}{#1}}
 
 \newcommand*{\email}[1]{}
@@ -44,10 +44,13 @@
 \renewcommand*{\instlogo}[1]{\renewcommand*{\printinstlogo}{#1}}
 
 \newcommand*{\instaddr}[1]{}
-\newcommand*{\printinstaddr}{Dana Research Group\\
-    Fundamental and Applied Chemical Kinetics\\
-    The Technion\\
-    Haifa, IL}
+\newcommand*{\printinstaddr}{
+\includegraphics[height=4mm]{figures/Logos/GitHub-Mark-120px-plus.png} mefuller \& kfir4444
+
+\vspace{3mm}
+
+\includegraphics[height=4mm]{figures/Logos/codeberg.png} fuller
+}
 \renewcommand*{\instaddr}[1]{\renewcommand*{\printinstaddr}{#1}}
 
 \newcommand*{\secstart}[1]{}

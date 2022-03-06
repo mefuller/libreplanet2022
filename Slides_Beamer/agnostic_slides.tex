@@ -19,9 +19,6 @@ Kfir:
  \item \ldots
 \end{itemize}
 
-\vspace{0.5cm}
-
-GitHub: mefuller \& kfir4444
 \end{frame}
 
 \section{Introduction}
@@ -198,6 +195,7 @@ Units: centimeters, kelvin, calories, moles
 
 \begin{frame}{Our toolchain}
  \begin{itemize}
+  \item Graphical drawing of structures, basic, geometry, and input file generation with \textsc{Avogadro2}
   \item Electronic structure calculations of individual molecules with \textsc{Psi4}
   \item Conversion of individual molecule results to thermodynamic properties and reaction rates with \textsc{ARC} %PAPR/MESS?, TamKIN?
   \item Automated model construction including estimating properties with \textsc{RMG}
@@ -209,11 +207,37 @@ Units: centimeters, kelvin, calories, moles
 
 \begin{frame}{
  \hspace{-5mm}
- \includegraphics[height=15mm]{figures/Logos/psi4square.png}
+ \includegraphics[height=15mm]{figures/Logos/avogadro2_64.png}
+ Avogadro2
 }
+
+\url{two.avogadro.cc}
+\hspace{10mm}
+\ghinlinelogo\ OpenChemistry/avogadro[app,libs]
+
+\vspace{5mm}
+
  %definitely show some animations of vibrations and TS here - videos transcoded into **WebM** format
  \begin{itemize}
- \item Written in Python C++, released under the LGPL-3.0 License
+ \item Written in C++, released under the BSD 3 Clause License
+ \item 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{
+ \hspace{-5mm}
+ \includegraphics[height=15mm]{figures/Logos/psi4square.png}
+}
+
+\url{psicode.org}
+\hspace{10mm}
+\ghinlinelogo\ psi4/psi4
+
+\vspace{5mm}
+
+ %definitely show some animations of vibrations and TS here - videos transcoded into **WebM** format
+\begin{itemize}
+ \item Written primarily in C++ with Python interfaces, released under the LGPL-3.0 License
 \end{itemize}
 \end{frame}
 
@@ -222,7 +246,17 @@ Units: centimeters, kelvin, calories, moles
  \includegraphics[height=10mm]{figures/Logos/rmg-logo-small.png}\\
  The Reaction Mechanism Generator
 }
-  % text here
+
+\url{rmg.mit.edu}
+\hspace{10mm}
+\ghinlinelogo\ ReactionMechanismGenerator/RMG-Py
+
+\vspace{5mm}
+
+\begin{itemize}
+ \item Written in Python 3, released under the MIT License
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{
@@ -230,7 +264,17 @@ Units: centimeters, kelvin, calories, moles
  \includegraphics[height=10mm]{figures/Logos/ARC-logo.jpg}\\
  The Automatic Rate Calculator
 }
- % text here
+
+%\url{rmg.mit.edu}
+
+\ghinlinelogo\ ReactionMechanismGenerator/ARC
+
+\vspace{5mm}
+
+\begin{itemize}
+ \item Written in Python 3, released under the MIT License
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{
@@ -239,9 +283,11 @@ Units: centimeters, kelvin, calories, moles
  The Tandem Tool
 }
 
+\ghinlinelogo\ ReactionMechanismGenerator/T3
+
 {
 \centering
-\includegraphics[width=\linewidth]{figures/T3-circle.png}
+\includegraphics[width=0.9\linewidth]{figures/T3-circle.png}
 }
 
 \begin{itemize}
@@ -254,6 +300,13 @@ Units: centimeters, kelvin, calories, moles
  \hspace{-5mm}
  \includegraphics[height=10mm]{figures/Logos/cantera-logo.png}
 }
+
+\url{cantera.org}
+\hspace{10mm}
+\ghinlinelogo\ Cantera/cantera
+
+\vspace{5mm}
+
 \begin{itemize}
  \item ``Cantera is an open-source suite of tools for problems involving chemical kinetics, thermodynamics, and transport processes.''
  \item BSD 3-Clause license
@@ -269,22 +322,34 @@ Units: centimeters, kelvin, calories, moles
 \begin{frame}{ \hspace{-5mm}
  \includegraphics[height=10mm]{figures/Logos/pyked-logo.png}
  PyKED and ChemKED}
+ 
+ 
+%\url{rmg.mit.edu}
+%\hspace{10mm}
+\ghinlinelogo\ pr-omethe-us/PyKED
+
+\vspace{5mm}
+
 \begin{itemize}
  \item ChemKED is a standard human and machine-readable file format for experimental data typical in combustion (\url{github.com/pr-omethe-us/ChemKED-database})
  \item PyKED is a Python interface for validating ChemKED files and implements standard interactions and routines for use with the data (\url{github.com/pr-omethe-us/PyKED})
+ \item Written in Python, released under BSD 3-Clause license
 \end{itemize}
 
  
 \end{frame}
 
-\begin{frame}{Technical - bake in above}
- -how is software developed and distributed?
--include links to source code, binaries
-\end{frame}
 
 \begin{frame}{Help wanted}
- -where can technical/software people contribute without knowing chemistry?
--what challenges do we foresee?
+There is a lot that can be contributed by non-experts in chemistry (actually our biggest deficit):
+
+\begin{itemize}
+ \item Cleanup of Conda environments and updating versions of dependencies (e.g. migrating away from \textsc{nosetests}) in \textsc{RMG} and \textsc{ARC}
+ \item Developing database for \textsc{TCKDB} with reactions and interfacing to \textsc{T3}
+ \item Binary packages and distribution in mainstream repositories on Linux distributions
+ \item Overhauling data validating and type-checking in \textsc{PyKED} (old version of \textsc{Cerberus} currently)
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{Q\&A}
