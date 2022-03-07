@@ -25,7 +25,7 @@
 %% include RWTH logo (for header)
 %%
 %update this logo later
-\logo{\includegraphics[height=12mm]{figures/Logos/Logo-Wissenschaft-Science-bridges-Cultures-Farben-der-Fachgesellschaften.png}}
+\logo{\includegraphics[height=8mm]{figures/Logos/EFF-logo-lockup-red.png}}
 
 %%
 %% add new commands to set web and email address
@@ -202,48 +202,48 @@
 \mode<presentation>
 
 %colors
-\RequirePackage{Customcolors}
+\RequirePackage{EFFcolors}
 
 %%
 %% settings for the title page
 %%
-%\setbeamercolor{title in titlepage}{fg=tdeepblue}
-\setbeamercolor{title}{fg=tdeepblue}
+%\setbeamercolor{title in titlepage}{fg=black}
+\setbeamercolor{title}{fg=black}
 
 %\setbeamercolor{subtitle in title}{fg=black}
-%\setbeamercolor{title in head/foot}{fg=tdeepblue}
+%\setbeamercolor{title in head/foot}{fg=black}
 \setbeamercolor{subtitle}{fg=black}
 \setbeamercolor{author in head/foot}{fg=black}
 
 %%
 %% settings for the outer theme
 %%
-\setbeamercolor{framenumber in head/foot}{fg=white,bg=tdeepblue}
-\setbeamercolor{frametitle}{fg=tdeepblue}
-\setbeamercolor{section}{fg=tdeepblue}
+\setbeamercolor{framenumber in head/foot}{fg=white,bg=black}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{section}{fg=black}
 
 %%
 %% settings for the table of contents
 %%
 \setbeamercolor{section in toc}{fg=black}
-%\setbeamercolor{subsection in toc}{fg=tdeepblue}
+%\setbeamercolor{subsection in toc}{fg=black}
 \setbeamercolor{subsection in toc}{fg=black}
-\setbeamercolor{section number projected}{fg=tgolden}
-\setbeamercolor{subsection number projected}{fg=tdeepblue}
+\setbeamercolor{section number projected}{fg=effred}
+\setbeamercolor{subsection number projected}{fg=black}
 
 %%
 %% settings for the inner theme (e.g. itemize)
 %%
-\setbeamercolor{itemize item}{fg=tgolden}
-\setbeamercolor{itemize subitem}{fg=tdeepblue}
-\setbeamercolor{itemize subsubitem}{fg=tdeepblue}
+\setbeamercolor{itemize item}{fg=effred}
+\setbeamercolor{itemize subitem}{fg=black}
+\setbeamercolor{itemize subsubitem}{fg=black}
 %\setbeamercolor{itemize subsubbody}{fg=red}
 
 %%
 %% various settings (deactivated) for reference
 %%
 
-\setbeamercolor{block title}{fg=tdeepblue}
+\setbeamercolor{block title}{fg=black}
 \setbeamercolor{block title alerted}{fg=pantone0485}
 \setbeamercolor{block title example}{fg=pantone0354}
 
@@ -406,8 +406,8 @@
 %\defbeamertemplate*{footline}{lfbs theme}
 %{
 %    \pgfdeclarehorizontalshading{lfbsfootlineshading}{.034\paperwidth}{%
-%      color(0pt)=(tdeepblue);%
-%      color(0.031\paperwidth)=(tdeepblue);%
+%      color(0pt)=(black);%
+%      color(0.031\paperwidth)=(black);%
 %      color(0.831\paperwidth)=(white)
 %    }
 %
@@ -477,7 +477,7 @@
 %%\setbeamersize{sidebar width right=.031\paperwidth}
 
 %\setbeamertemplate{sidebar canvas left}[vertical shading]
-%[left=tdeepblue, middle=tdeepblue, right=white, midpoint=0.2]
+%[left=black, middle=black, right=white, midpoint=0.2]
 %
 %%\setbeamertemplate{sidebar canvas right}[vertical shading]
 %%[left=white, middle=white, right=white, midpoint=0.2]
@@ -640,13 +640,13 @@
     %\protect\iflanguage{english}{Thank you for your kind attention!}{}
 
     \vspace{4ex}
-    \textbf{\insertauthor}\ifx\printemail\@empty\else{~--~{\color{tdeepblue}\printemail}}\fi
+    \textbf{\insertauthor}\ifx\printemail\@empty\else{~--~{\color{black}\printemail}}\fi
 
     \vspace{2ex}
     \printinstaddr
 
     \vspace{2ex}
-    {\color{tdeepblue}\url{\printwebaddress}}
+    {\color{black}\url{\printwebaddress}}
   \end{frame}
 }
 
