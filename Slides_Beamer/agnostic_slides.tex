@@ -1,7 +1,7 @@
 \begin{frame}{About Us}
 Mark and Kfir are both active in developing and contributing to FOSS projects within the scientific community including \textsc{Cantera}, the \textsc{Reaction Mechanism Generator}, and the \textsc{Automatic Rate Calculator}.
 
-\vspace{0.5cm}
+\vspace{10pt}
 
 Mark:
 \begin{itemize}
@@ -11,7 +11,7 @@ Mark:
  \item Currently employed in DevOps
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{10pt}
 
 Kfir:
 \begin{itemize}
@@ -27,30 +27,38 @@ Kfir:
 
 \begin{frame}{Chemistry 101}
 
-A few point require some chemistry terminology.
+A few points require some chemistry terminology:
 
 \vspace{0.5cm}
 
  \begin{itemize}
+  
   \item Atoms:
   \begin{itemize}
-  	\item Smallest unit of matter.
-  	\item Comprised of smaller particles, which determines the type.
-  	\item Electrically charged.
+  	\item Basic units of matter, composed of protons, neutrons, and electrons
+  	\item Categorized as elements as a function of number of protons
+  	\item Protons and neutrons form a nucleus about which electrons orbit
+  	\item Electrically charged and form bonds through arrangements of electrons
   \end{itemize}
+  
   \item Molecules:
   \begin{itemize}
-  	\item Comprised of connected Atoms.
-	\item Has internal movement.
-	\item $C_6H_12 \neq C_6H_12$ \hspace{0.4cm}
-	\includegraphics[scale=0.2]{figures/hexanes.jpg}
+    \item Also called ``(chemical) species''
+  	\item Comprised of connected atoms
+	\item Has internal movement (rotation, vibration)
+	\item Structure matters: hexene (\ce{C6H12}) $\neq$ benzene (\ce{C6H12})
   \end{itemize}
-  \item Species:
-  \begin{itemize}
-  	\item A "snapshot" of a molecule.
-  	\item Varies by the coordination of the atoms and the energy.
-  	\item Exists in 3D space
-  \end{itemize}
+  
+  \vspace{10pt}
+  
+	\hspace{29mm}\scalebox{0.5}{\chemfig{C-[1]C-[11]C=C-[1]C-[11]C}} \hspace{3mm}$\neq$\hspace{3mm} \scalebox{0.5}{\chemfig{C**6(-C-C-C-C-C-)}}
+  
+%  \item State:
+%  \begin{itemize}
+%  	\item A "snapshot" of a molecule
+%  	\item Varies by the coordination of the atoms and the energy
+%  	\item Exists in 3D space
+%  \end{itemize}
 
  \end{itemize}
  
@@ -59,31 +67,31 @@ A few point require some chemistry terminology.
 
 \begin{frame}{Chemistry 101}
 
-A few point require some chemistry terminology.
+Only a few more terms!
 
-\vspace{0.5cm}
+\vspace{12pt}
  \begin{itemize}
 
-  \item Reactions:
+  \item Reaction:
   \begin{itemize}
-  	\item A process that changes one molecule another.
-  	\item Has reactants and products.
-  	\item Has reaction rates, which determines how much of the product is recived in the end.
-  \end{itemize}
-  \item Transition state:
-  \begin{itemize}
-
-  	\item The most energetic species that is generated during the reaction.
-  	\item Is a "bottleneck" of the reaction, energetically speaking.
-  	\item Allows for calculations of the reaction rates.
-  \end{itemize}
-  \item Models:
-  \begin{itemize}
-  	\item Are combination of reactions and species.
-  	\item simulates the time evolution of a chemical system.
-  	\item Depends on external conditions.
+  	\item A process that changes one or more molecules into others
+  	\item Has reactants (inputs) and products (outputs), but processes are reversible
+  	\item Has rate, which determines how fast the process occurs
   \end{itemize}
   
+  \item Transition state:
+  \begin{itemize}
+  	\item The highest-energy species that is generated during the reaction
+  	\item Is a "bottleneck" of the reaction - it controls the rate
+  	\item Allows for calculations of the reaction rates
+  \end{itemize}
+  
+  \item Mechanism:
+  \begin{itemize}
+  	\item Combinations (sets) of reactions and species
+  	\item Allow for simulation the time evolution of a chemical system
+  	\item Depends on external conditions (temperature, pressure, constraints)
+  \end{itemize}
 
  \end{itemize}
  
@@ -148,7 +156,7 @@ Various computational approaches:
 
 \begin{frame}{Guessing Species and Reactions}
 
-\vspace{-5mm}
+\vspace{-8mm}
 
     \begin{multicols}{2}
     \begin{itemize}
@@ -220,6 +228,9 @@ Various computational approaches:
 \end{frame}
 
 \begin{frame}{Calculating Species and Reactions}
+
+\vspace{-8mm}
+
 	\begin{figure}
 		\centering
         \begin{tikzpicture}[yscale = 0.5]
