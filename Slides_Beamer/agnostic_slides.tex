@@ -24,6 +24,72 @@ Kfir:
 
 \section{Introduction}
 
+
+\begin{frame}{Chemistry 101}
+
+A few point require some chemistry terminology.
+
+\vspace{0.5cm}
+
+ \begin{itemize}
+  \item Atoms:
+  \begin{itemize}
+  	\item Smallest unit of matter.
+  	\item Comprised of smaller particles, which determines the type.
+  	\item Electrically charged.
+  \end{itemize}
+  \item Molecules:
+  \begin{itemize}
+  	\item Comprised of connected Atoms.
+	\item Has internal movement.
+	\item $C_6H_12 \neq C_6H_12$ \hspace{0.4cm}
+	\includegraphics[scale=0.2]{figures/hexanes.jpg}
+  \end{itemize}
+  \item Species:
+  \begin{itemize}
+  	\item A "snapshot" of a molecule.
+  	\item Varies by the coordination of the atoms and the energy.
+  	\item Exists in 3D space
+  \end{itemize}
+
+ \end{itemize}
+ 
+\end{frame}
+
+
+\begin{frame}{Chemistry 101}
+
+A few point require some chemistry terminology.
+
+\vspace{0.5cm}
+ \begin{itemize}
+
+  \item Reactions:
+  \begin{itemize}
+  	\item A process that changes one molecule another.
+  	\item Has reactants and products.
+  	\item Has reaction rates, which determines how much of the product is recived in the end.
+  \end{itemize}
+  \item Transition state:
+  \begin{itemize}
+
+  	\item The most energetic species that is generated during the reaction.
+  	\item Is a "bottleneck" of the reaction, energetically speaking.
+  	\item Allows for calculations of the reaction rates.
+  \end{itemize}
+  \item Models:
+  \begin{itemize}
+  	\item Are combination of reactions and species.
+  	\item simulates the time evolution of a chemical system.
+  	\item Depends on external conditions.
+  \end{itemize}
+  
+
+ \end{itemize}
+ 
+\end{frame}
+
+
 \begin{frame}{Computational chemistry:\\ an essential science}
 
 Just a few examples:
@@ -196,7 +262,7 @@ Units: centimeters, kelvin, calories, moles
 
 \begin{frame}{Our toolchain}
  \begin{itemize}
-  \item Graphical drawing of structures, basic, geometry, and input file generation with \textsc{Avogadro2}
+  \item Graphical drawing of structures, basic geometry and input file generation with \textsc{Avogadro2}
   \item Electronic structure calculations of individual molecules with \textsc{Psi4}
   \item Conversion of individual molecule results to thermodynamic properties and reaction rates with \textsc{ARC} %PAPR/MESS?, TamKIN?
   \item Automated model construction including estimating properties with \textsc{RMG}
@@ -244,6 +310,26 @@ Units: centimeters, kelvin, calories, moles
 
 \begin{frame}{
  \hspace{-5mm}
+ \includegraphics[height=10mm]{figures/Logos/ARC-logo.jpg}\\
+ The Automatic Rate Calculator
+}
+
+%\url{rmg.mit.edu}
+
+\ghinlinelogo\ ReactionMechanismGenerator/ARC
+
+\vspace{5mm}
+
+\begin{itemize}
+ \item Written in Python 3, released under the MIT License
+ \item The goal is to automatically calculate chemical species thermochemistry and reaction rate coefficients.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{
+ \hspace{-5mm}
  \includegraphics[height=10mm]{figures/Logos/rmg-logo-small.png}\\
  The Reaction Mechanism Generator
 }
@@ -261,24 +347,6 @@ Units: centimeters, kelvin, calories, moles
 
 \end{frame}
 
-\begin{frame}{
- \hspace{-5mm}
- \includegraphics[height=10mm]{figures/Logos/ARC-logo.jpg}\\
- The Automatic Rate Calculator
-}
-
-%\url{rmg.mit.edu}
-
-\ghinlinelogo\ ReactionMechanismGenerator/ARC
-
-\vspace{5mm}
-
-\begin{itemize}
- \item Written in Python 3, released under the MIT License
- \item The goal is to automatically calculate chemical species thermochemistry and reaction rate coefficients.
-\end{itemize}
-
-\end{frame}
 
 \begin{frame}{
  \hspace{-5mm}
