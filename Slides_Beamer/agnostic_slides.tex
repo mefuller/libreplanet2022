@@ -306,7 +306,7 @@ Units: centimeters, kelvin, calories, moles
  \begin{itemize}
   \item Graphical drawing of structures, basic geometry and input file generation with \textsc{Avogadro2}
   \item Electronic structure calculations of individual molecules with \textsc{Psi4}
-  \item Conversion of individual molecule results to thermodynamic properties and reaction rates with \textsc{ARC} %PAPR/MESS?, TamKIN?
+  \item Conversion of individual molecule results to thermodynamic properties and reaction rates with \textsc{ARC} (also other options)%PAPR/MESS?, TamKIN?
   \item Automated model construction including estimating properties with \textsc{RMG}
   \item Automating decisions to refine estimates with computations using \textsc{T3}
   \item Reactor simulations with \textsc{Cantera}
@@ -314,9 +314,23 @@ Units: centimeters, kelvin, calories, moles
  \end{itemize}
 \end{frame}
 
+\begin{frame}{Reference toolchain}
+Without the preceding free software projects, our life would be very different!
+ \begin{itemize}
+  \item Buy an expensive license for a single package to draw structures and then perform calculations
+  \item Possibly buy another expensive license to perform finer calculations
+  \item Manually copy-paste output values into an in-house code to calculate thermodynamics and reaction rates (?)
+  \item Manually assemble a mechanism file from literature and our new results
+  \item Purchase yet another license to perform the reactor simulations
+  \item Publish the data in a non-machine-readable format (or maybe only as points on a figure)
+ \end{itemize}
+
+ 
+\end{frame}
+
 \begin{frame}{
  \hspace{-5mm}
- \includegraphics[height=15mm]{figures/Logos/avogadro2_64.png}
+ \includegraphics[height=10mm]{figures/Logos/avogadro2_64.png}
  Avogadro2
 }
 
@@ -329,9 +343,20 @@ Units: centimeters, kelvin, calories, moles
  %definitely show some animations of vibrations and TS here - videos transcoded into **WebM** format
  \begin{itemize}
  \item Written in C++, released under the BSD 3 Clause License
- \item 
+ \item Rewrite of the original Avogadro under the Open Chemistry projects (not all features ported yet, both version in use)
+ \item Cross-platform (Linux/Mac/Windows)
+ \item Molecular editor for drawing molecules, creating input files for other programs, viewing output files
+ \item Able to provide rough rules-based guess of geometry
+ \item Plugins to many calculators including \textsc{Psi4}
 \end{itemize}
 \end{frame}
+
+\begin{frame}{Viewing results with Avogadro}
+\vspace{-5mm}
+\centering
+ \includegraphics[width=\linewidth]{figures/avogadro_screenshot.png}
+\end{frame}
+
 
 \begin{frame}{
  \hspace{-5mm}
@@ -460,6 +485,7 @@ There is a lot that can be contributed by non-experts in chemistry (actually our
  \item Cleanup of Conda environments and updating versions of dependencies (e.g. migrating away from \textsc{nosetests}) in \textsc{RMG} and \textsc{ARC}
  \item Developing database for \textsc{TCKDB} with reactions and interfacing to \textsc{T3}
  \item Binary packages and distribution in mainstream repositories on Linux distributions
+ \item Extending the ChemKED standard to include additional types of experiment
  \item Overhauling data validating and type-checking in \textsc{PyKED} (old version of \textsc{Cerberus} currently)
 \end{itemize}
 
