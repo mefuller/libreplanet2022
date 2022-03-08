@@ -97,6 +97,37 @@ Only a few more terms!
  
 \end{frame}
 
+\begin{frame}{Reaction Kinetics and Thermodynamics}
+
+    \begin{multicols}{2}
+        \scalebox{0.75}{
+            \begin{tikzpicture}
+            \label{fig:whykinetics}
+            \draw[->] (-0.3,0) -- (7,0) coordinate[label = {below left:Reaction Coordinate}];
+            \draw[->] (0,-0.3) -- (0,7) coordinate[label = {[rotate=90]above left:Energy}];
+            \draw (0,5) -- (1,5) coordinate[label = {above left:A}];
+            \draw (3,3) -- (4,3) coordinate[label = {above left:B}];
+            \draw (6,1) -- (7,1) coordinate[label = {above left:C}];
+            \draw[dashed] (1,5) .. controls (2,6) .. (3,3);
+            \draw[dashed] (1,5) .. controls (3,8) .. (6,1);
+            \draw[dashed] (4,3) .. controls (5,8) .. (6,1);
+            \draw[black, ->] (1.8,4.5) -- (1.8,5.5);
+            \node[label={$TS_{AB}$}] at (1.4, 3.8) {};
+            \node[label={$TS_{AC}$}] at (2.8,6.7) {};
+            \node[label={$TS_{BC}$}] at (5,6.5) {};
+            \end{tikzpicture}
+        }
+        
+        \columnbreak
+        \begin{itemize}
+         \item Thermodynamics favor lowest energy: product $C$ dominates
+         \item Kinetics (reaction energy and transition states) show instead that $B$ forms predominantly
+        \end{itemize}
+        
+    \end{multicols}
+\end{frame}
+
+
 
 \begin{frame}{Computational chemistry:\\ an essential science}
 
