@@ -305,7 +305,7 @@ Units: centimeters, kelvin, calories, moles
 
 \begin{frame}{Our toolchain}
  \begin{itemize}
-  \item Graphical drawing of structures, basic geometry and input file generation with \textsc{Avogadro2}
+  \item Graphical drawing of structures, basic geometry, and input file generation with \textsc{Avogadro2}
   \item Electronic structure calculations of individual molecules with \textsc{Psi4}
   \item Conversion of individual molecule results to thermodynamic properties and reaction rates with \textsc{ARC} (also other options)%PAPR/MESS?, TamKIN?
   \item Automated model construction including estimating properties with \textsc{RMG}
@@ -373,6 +373,13 @@ Without the preceding free software projects, our life would be very different!
  %definitely show some animations of vibrations and TS here - videos transcoded into **WebM** format
 \begin{itemize}
  \item Written primarily in C++ with Python interfaces, released under the LGPL-3.0 License
+ \item  Inputs: molecule(s), unrefined geometry, and other optional parameters
+ \item Calculates:
+ 	\begin{itemize}
+ 		\item Optimized geometry
+ 		\item Energy
+ 		\item Harmonic vibrations
+ 	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -391,6 +398,8 @@ Without the preceding free software projects, our life would be very different!
 \begin{itemize}
  \item Written in Python 3, released under the MIT License
  \item The goal is to automatically calculate chemical species thermochemistry and reaction rate coefficients.
+ \item Uses output files from quantum chemistry solvers (like \textsc{Psi4})
+ \item Calculates reaction coordinates and themochemical properties
 \end{itemize}
 
 \end{frame}
@@ -410,7 +419,9 @@ Without the preceding free software projects, our life would be very different!
 
 \begin{itemize}
  \item Written in Python 3, released under the MIT License
- \item The goal is to define the significant reaction in the model
+ \item The goal is to automatically build kinetic models from elementary reaction sets
+ \item Defines a "core" and an "edge", where the core contains the most important reactions and species
+ \item Iterative calls to \textsc{ARC}, adding species and reactions to the core and edge.
 \end{itemize}
 
 \end{frame}
